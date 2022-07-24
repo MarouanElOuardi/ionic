@@ -134,9 +134,9 @@ methods: {
         this.$refs.modal.$el.dismiss(name, 'confirm');
       },
     getUsers() {
-      axios.get('http://localhost:8080/getAllUsers.php').then(response => {
-      console.log(response.data);
-      this.users = response.data;
+      axios.get('http://localhost:3000/users').then(response => {
+      console.log(response.data.data);
+      this.users = response.data.data;
       })
     },
     getTransports() {
@@ -152,9 +152,9 @@ methods: {
       })
     }, 
     deleteUser(userId) {
-      axios.get('http://localhost:8080/deleteUserById.php?id='+userId).then(response => {
-      console.log(response.data);
-      this.users = response.data;
+      axios.delete('http://localhost:3000/users/'+userId).then(response => {
+      console.log(response.data.data);
+      this.users = response.data.data;
       })
     },
     registerUser(data){
